@@ -30,6 +30,7 @@ prodatb = []
 while(cont != 0):
     print("1 - Cliente")
     print("2 - Produto")
+    print("3 - Fazer uma busca")
     print("0 - Sair")
     print("Escolhida: ")
     x = int(input())
@@ -42,6 +43,7 @@ while(cont != 0):
         print("2 - Listar Manual e inserir no MongoDB")
         print("3 - Planilha")
         print("4 - Listar Planilha e inserir no MongoDB")
+        print("0 - Voltar")
         print("Escolhida: ")
         y = int(input())
 
@@ -142,7 +144,7 @@ while(cont != 0):
             clientcol2.insert_many(ins2)
 
         elif (y == 0):
-            break
+            pass
 
     elif(x == 2):
         print("--Informe o Metodo de Inserção PRODUTO--")
@@ -150,8 +152,9 @@ while(cont != 0):
         print("2 - Listar Manual e inserir no MongoDB")
         print("3 - Planilha")
         print("4 - Listar Planilha e inserir no MongoDB")
-        print("5 - Ler Site Extra")
+        print("5 - Ler Site Carrefour")
         print("6 - Listar e inserir Site no MongoDB")
+        print("0 - Voltar")
         print("Escolhida: ")
         y = int(input())
 
@@ -267,7 +270,103 @@ while(cont != 0):
             produtocol3.insert_many(dblist)
 
         elif (y == 0):
-            break
+            pass
+
+    elif (x == 3):
+        print("----Menu de Busca----")
+        print("1 - Cliente")
+        print("2 - Produto")
+        print("0 - Voltar")
+        print("Escolhida:")
+        y = int(input())
+
+        if(y == 1):
+            print("----Menu de Busca - Cliente----")
+            print("1 - Manual")
+            print("2 - Planilha")
+            print("0 - Voltar")
+            print("Escolhida:")
+            x = int(input())
+
+            if(x == 1):
+                print("-----------------------------")
+                print("Informe o nome a ser Buscado:")
+                y = str(input())
+                i = 0
+
+                while i < len(obj):
+                    if y in obj[i].getNome():
+                        print("--------------------")
+                        print(("Nome Encontrado: {}").format(obj[i].getNome()))
+                        print("--------------------")
+                    i += 1
+            elif(x == 2):
+                print("-----------------------------")
+                print("Informe o nome a ser Buscado:")
+                y = str(input())
+                i = 0
+
+                while i < len(obj2):
+                    if y in obj2[i].getNome():
+                        print("--------------------")
+                        print(("Nome Encontrado: {}").format(obj2[i].getNome()))
+                        print("--------------------")
+                    i += 1
+            elif(x == 0):
+                pass
+
+
+
+        elif(y == 2):
+            print("----Menu de Busca - Produto----")
+            print("1 - Manual")
+            print("2 - Planilha")
+            print("3 - Site")
+            print("0 - Voltar")
+            print("Escolhida:")
+            x = int(input())
+
+            if(x == 1):
+                print("-----------------------------")
+                print("Informe o nome a ser Buscado:")
+                x = str(input())
+                i = 0
+
+                while i < len(objprod):
+                    if x in objprod[i].getNome():
+                        print("--------------------")
+                        print(("Nome Encontrado: {}").format(objprod[i].getNome()))
+                        print("--------------------")
+                    i += 1
+
+            elif(x == 2):
+                print("-----------------------------")
+                print("Informe o nome a ser Buscado:")
+                y = str(input())
+                i = 0
+
+                while i < len(objprod):
+                    if y in objprod2[i].getNome():
+                        print("--------------------")
+                        print(("Nome Encontrado: {}").format(objprod2[i].getNome()))
+                        print("--------------------")
+                    i += 1
+
+            elif(x == 3):
+                print("-----------------------------")
+                print("Informe o nome a ser Buscado:")
+                y = str(input())
+
+                i = 0
+                while i < len(name):
+                    if y in name[i]:
+                        print("--------------------")
+                        print(("Nome Encontrado: {}").format(name[i]))
+                        print("--------------------")
+                    i += 1
+
+        elif(y == 0):
+            pass
 
     elif(x == 0):
         break
